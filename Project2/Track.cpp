@@ -19,14 +19,14 @@ void Track::drawtrack()
 		
 	trackmap[0].setPosition(sf::Vector2f(0, ypos[0]));
 	trackmap[1].setPosition(sf::Vector2f(0, ypos[1]));
-	trackmap[2].setPosition(sf::Vector2f(0, ypos[3]));
+	trackmap[2].setPosition(sf::Vector2f(0, ypos[2]));
 	
-	
+	score += speed;
 
 
 	for (int i = 0; i < 3; i++)
 	{
-		ypos[i]++;
+		ypos[i]++;// = speed;
 		if (ypos[i] >= 1080)
 		{
 			trackmap[i].setTexture(&trackTxt[std::rand() % 2]);
@@ -36,4 +36,9 @@ void Track::drawtrack()
 	}
 	for(int i=0;i<3;i++)
 		m_window.draw(trackmap[i]);
+
+	if (score % 100 == 0)
+		speed++;
+
+
 }

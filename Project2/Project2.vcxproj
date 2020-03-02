@@ -144,8 +144,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="collider.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="Obstacle.cpp" />
-    <ClCompile Include="obstra.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Track.cpp" />
@@ -154,8 +155,9 @@
     <Image Include="..\..\car.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="collider.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="Obstacle.h" />
-    <ClInclude Include="obstra.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Track.h" />
   </ItemGroup>

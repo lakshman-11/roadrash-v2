@@ -2,22 +2,28 @@
 #include"Track.h"
 #include"Obstacle.h"
 #include"Player.h"
+#include"collider.h"
+#include"game.h"
 #include<iostream>
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "My window");
+    void collision(sf::Sprite player, sf::Sprite carTexture, sf::Sprite truckTexture);
+
+  
 
     Track trackobj(window);
     trackobj.loadTexture();
 
     Obstacle obsObj(window);
-    //Load texture
+    obsObj.loadTexture();
 
     Player playerObj(window);
+    playerObj.loadTexture();
     //Load texture
-
-    
+    game obj(window);
+    obj.loadonce();
     while (window.isOpen())
     {
 
@@ -31,15 +37,15 @@ int main()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
             window.close();
 
-        trackobj.drawtrack();
+       
         window.clear();
+        obj.update();
+        
+        //trackobj.drawtrack();
 
-        trackobj.drawtrack();
+       // obsObj.callObstacle();
 
-        obsObj.callObstacle();
-
-        playerObj.drawPlayer();
-
+       // playerObj.drawPlayer();
         window.display();
        
     }
