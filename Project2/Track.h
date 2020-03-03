@@ -11,7 +11,7 @@ private:
 	sf::RectangleShape trackmap[3];
 	float ypos[3] = { -1080,0,1080};
 	int score = 0;
-	float speed = 10;
+	float speed = 1;
 	sf::Text text;
 public:
 

@@ -54,7 +54,7 @@ int main()
         obj.update();
         
 
-       obsObj.callObstacle();
+      // obsObj.callObstacle();
 
         trackobj.drawfont();
         window.display();

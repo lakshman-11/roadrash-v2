@@ -41,14 +41,25 @@ void Obstacle::callObstacle()
 	truckposy += speed;
 
 	if (carposy >= 1080)
+	{
+		carposx = xpos[std::rand() % 3];
 		carposy = -1080;
+	}
 
 	if (truckposy >= 1080)
+	{
+		truckposx = xpos[std::rand() % 3];
 		truckposy = -1080;
+	}
+	if (carposy == truckposy)
+	{
+		carposy -= 500;
+	}
 	//std::cout << carposy<<std::endl;
+	std::cout << sf::Mouse::getPosition().x << std::endl;
 	score += speed;
 
-	if (score % 10000 == 0)
+	if (score % 1000 == 0)
 		speed++;
 	
 }

@@ -34,13 +34,13 @@ void Player::drawPlayer(float& xpos)
 void Player::move(float& xpos)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-		xpos--;
+		xpos-=5;
 		if (xpos <= 402)
 			xpos = 402;
 	
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		xpos++;
+		xpos+=5;
 	if (xpos >= 1371)
 		xpos = 1371;
 	//std::cout << xpos << std::endl;

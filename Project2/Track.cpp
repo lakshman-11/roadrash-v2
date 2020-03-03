@@ -11,7 +11,7 @@ void Track::loadTexture()
 void Track::drawtrack()
 {
 	for (int i = 0; i < 3; i++)
-	{
+	{	
 		
 		trackmap[i].setFillColor(sf::Color(255, 255, 255, 255));
 		trackmap[i].setSize(sf::Vector2f(1920, 1080));
