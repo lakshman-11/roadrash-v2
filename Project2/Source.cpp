@@ -4,26 +4,33 @@
 #include"Player.h"
 #include"collider.h"
 #include"game.h"
+#include "audio.h"
 #include<iostream>
+
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "My window");
-    void collision(sf::Sprite player, sf::Sprite carTexture, sf::Sprite truckTexture);
 
+    void collision(sf::Sprite player, sf::Sprite carTexture, sf::Sprite truckTexture);
   
 
     Track trackobj(window);
     trackobj.loadTexture();
+ 
+    Audio audioManager(100);
+
+    //audioManager.loadBgMusic("audio.mp3");
+    audioManager.load(Engine, "audio.wav");
+
 
     Obstacle obsObj(window);
     obsObj.loadTexture();
 
-    Player playerObj(window);
-    playerObj.loadTexture();
     //Load texture
     game obj(window);
     obj.loadonce();
+    
     while (window.isOpen())
     {
 
@@ -36,16 +43,20 @@ int main()
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
             window.close();
-
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))
+            audioManager.playSound(Engine);
        
         window.clear();
+        
+        trackobj.drawtrack();
+        
+    
         obj.update();
         
-        //trackobj.drawtrack();
 
-       // obsObj.callObstacle();
+       obsObj.callObstacle();
 
-       // playerObj.drawPlayer();
+        trackobj.drawfont();
         window.display();
        
     }

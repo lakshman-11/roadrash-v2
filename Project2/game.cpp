@@ -9,16 +9,31 @@ void game::loadonce()
 
 void game::update()
 {
+
 	trackobject->drawtrack();
 	obstacleobject->callObstacle();
-	playerobj->drawPlayer();
-	collision(playerobj->getsprite(), obstacleobject->getcar());
+	playerobj->drawPlayer(xpos);
+	collision(playerobj->getsprite(), obstacleobject->getcar(),obstacleobject->gettruck());
 	//std::cout << obstacleobject-> getcar().getPosition().y<<std::endl;
 }
 
-void game::collision(sf::Sprite player, sf::Sprite carTexture)
+game::game(sf::RenderWindow& window) : m_window(window) {
+	Player playerObj(window);
+	playerObj.loadTexture();
+}
+
+
+void game::collision(sf::Sprite player, sf::Sprite carTexture, sf::Sprite truckTexture)
 {
 	if (player.getGlobalBounds().intersects(carTexture.getGlobalBounds()))
-		std::cout << "collision";
+	{
+		//std::cout << "collision\n";
+		xpos = xpos + 50;
+	}
 
+	if (player.getGlobalBounds().intersects(truckTexture.getGlobalBounds()))
+	{
+		xpos = xpos + 50;
+	}
 }
+

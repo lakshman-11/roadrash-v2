@@ -40,5 +40,22 @@ void Track::drawtrack()
 	if (score % 100 == 0)
 		speed++;
 
+	score++;
+}
+
+void Track::drawfont()
+{
+	sf::Font font;
+	font.loadFromFile("abc.otf");
+	text.setPosition(1080.f, 40.0f);
+	std::stringstream s;
+	s << "Score: " << score/1000 << std::endl;
+	text.setString(s.str());
+	text.setFont(font);
+	text.setFillColor(sf::Color::Red);
+	m_window.draw(text);
+	/*sf::RectangleShape rect(sf::Vector2f(80.0f, 80.0f));
+	rect.setSize(sf::Vector2f(100.0f, 100.0f));
+	m_window.draw(rect);*/
 
 }

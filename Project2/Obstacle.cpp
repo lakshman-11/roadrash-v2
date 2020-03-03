@@ -8,22 +8,24 @@ void Obstacle::loadTexture()
 
 void Obstacle::drawObstacle(int choice, float xpos, float ypos, float xsize, float ysize)
 {
-	sf::Sprite car;
-	
-	if (choice == 1)
+	//sf::Sprite car;
+	for (int i = 0; i < 2; i++)
 	{
-		car.setTexture(carTexture);
-		car.setScale(0.2f, 0.2f);
-		car.setPosition(sf::Vector2f(xpos, ypos));
-		m_window.draw(car);
-	}
+		if (choice == 1)
+		{
+			car.setTexture(carTexture);
+			car.setScale(0.2f, 0.2f);
+			car.setPosition(sf::Vector2f(xpos, ypos));
+			m_window.draw(car);
+		}
 
-	if (choice == 2)
-	{
-		car.setTexture(truckTexture);
-		car.setScale(0.3f, 0.4f);
-		car.setPosition(sf::Vector2f(xpos, ypos));
-		m_window.draw(car);
+		if (choice == 2)
+		{
+			truck.setTexture(truckTexture);
+			truck.setScale(0.3f, 0.4f);
+			truck.setPosition(sf::Vector2f(xpos, ypos));
+			m_window.draw(truck);
+		}
 	}
 	
 }
@@ -43,7 +45,7 @@ void Obstacle::callObstacle()
 
 	if (truckposy >= 1080)
 		truckposy = -1080;
-	std::cout << carposy<<std::endl;
+	//std::cout << carposy<<std::endl;
 	score += speed;
 
 	if (score % 10000 == 0)
@@ -53,10 +55,13 @@ void Obstacle::callObstacle()
 
 sf::Sprite Obstacle::getcar()
 {
-	return car ;
+
+			
+		return car;
+
 }
 
-/*sf::Sprite Obstacle::gettruck()
+sf::Sprite Obstacle::gettruck()
 {
 	return truck;
-}*/
+}

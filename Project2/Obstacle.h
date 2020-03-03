@@ -7,11 +7,12 @@ class Obstacle
 private:
 	sf::RenderWindow& m_window;
 	float carposx = 450, carposy=0, truckposx=750, truckposy=0;
-	int speed = 1;
-	int score =10;
+	int speed = 10;
+	int score =0;
 	sf::Texture carTexture,truckTexture;
 
-	sf::Sprite car,truck;
+	sf::Sprite car;
+	sf::Sprite truck;
 
 
 public:

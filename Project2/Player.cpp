@@ -1,5 +1,4 @@
 #include "Player.h"
-#include "collider.h"
 
 sf::Sprite Player::getsprite()
 {
@@ -11,7 +10,7 @@ void Player::loadTexture()
 	player.loadFromFile("player.png");
 }
 
-void Player::drawPlayer()
+void Player::drawPlayer(float& xpos)
 {
 	/*sf::RectangleShape playerRect;
 	playerRect.setFillColor(sf::Color(255, 0, 0, 255));
@@ -25,18 +24,24 @@ void Player::drawPlayer()
 
 		
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		move();
+		move(xpos);
 
 	playerRect.setPosition(sf::Vector2f(xpos, 700));
 	m_window.draw(playerRect);
 
 }
 
-void Player::move()
+void Player::move(float& xpos)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		xpos--;
+		if (xpos <= 402)
+			xpos = 402;
+	
+	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		xpos++;
-
+	if (xpos >= 1371)
+		xpos = 1371;
+	//std::cout << xpos << std::endl;
 }
